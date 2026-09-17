@@ -11,6 +11,9 @@ and Siming Bayer
 Pattern Recognition Lab, Friedrich-Alexander-Universität Erlangen-Nürnberg ·
 Ostbayerische Technische Hochschule Amberg-Weiden
 
+[![CI](https://github.com/julianoelhaf/offline-cql-protection/actions/workflows/ci.yml/badge.svg)](https://github.com/julianoelhaf/offline-cql-protection/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 This repository studies line-selective protection tripping from fixed
 trajectories of a realistically simulated CIGRE medium-voltage grid. A
 convolutional Q-network is trained with conservative Q-learning (CQL) using
@@ -152,6 +155,11 @@ python -m unittest discover -s tests -v
 Tests requiring the external experiment artifacts skip automatically when
 those artifacts are absent. The split and paper-result tests run from a fresh
 clone.
+
+GitHub Actions runs this same command on every push and pull request, on
+Python 3.12 against the pinned `requirements.txt`, with no GPU and no dataset
+(`.github/workflows/ci.yml`). It also parses the Slurm job scripts and guards
+against site-internal paths reappearing.
 
 ## Reproduction workflow
 
