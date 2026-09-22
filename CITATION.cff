@@ -6,7 +6,7 @@ title: Offline Reinforcement Learning for Distribution-Grid Protection
 type: software
 repository-code: https://github.com/julianoelhaf/offline-cql-protection
 version: "1.0.0"
-date-released: "2026-09-17"
+date-released: "2026-09-22"
 license: MIT
 authors:
   - family-names: Oelhaf
