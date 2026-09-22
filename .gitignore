@@ -1,0 +1,105 @@
+# Python
+__pycache__/
+.ruff_cache/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+# Saved-output research notebooks stay local until outputs are cleared.
+*.ipynb
+
+# Conda / virtual envs
+.env
+.venv
+env/
+venv/
+*.conda
+
+# Data files
+*.csv
+*.npy
+*.npz
+*.pickle
+*.pkl
+*.h5
+*.hdf5
+*.parquet
+*.feather
+*.arrow
+
+# Model checkpoints & weights
+*.pt
+*.pth
+*.ckpt
+*.bin
+checkpoints/
+
+# Outputs & plots
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+graphs/
+results*/
+ablation_study/
+artifacts/
+output/
+outputs/
+tmp/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# Test caches & git bundles
+.pytest_cache/
+*.bundle
+
+# Labels / generated artifacts
+labels/
+data_npy/
+
+# Office / report files
+*.docx
+*.pptx
+*.xlsx
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configs with secrets (keep tracked configs but ignore local overrides)
+*.local.yaml
+*.local.json
+
+# Tracked release data: the episode-split manifest and the paper's result
+# evidence are exempt from the blanket *.csv rule above.
+!splits/*.csv
+!pess_2026_rl_luce/evidence/*.csv
+!pess_2026_rl_luce/evidence/first_trip_episodes/*.csv
+!pess_2026_rl_luce/traceability.csv
+
+# Never commit: run provenance with cluster-internal paths, and manuscript
+# review material.
+pess_2026_rl_luce/evidence/first_trip_definition.json
+pess_2026_rl_luce/redline/
+pess_2026_rl_luce/figure_data/

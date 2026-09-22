@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite the paper below. Julian Oelhaf and
+  Alexander Luce contributed equally to this work.
+title: Offline Reinforcement Learning for Distribution-Grid Protection
+type: software
+repository-code: https://github.com/julianoelhaf/offline-cql-protection
+version: "1.0.0"
+date-released: "2026-09-17"
+license: MIT
+authors:
+  - family-names: Oelhaf
+    given-names: Julian
+    email: julian.oelhaf@fau.de
+    affiliation: >-
+      Pattern Recognition Lab, Friedrich-Alexander-Universität
+      Erlangen-Nürnberg
+  - family-names: Luce
+    given-names: Alexander
+    affiliation: >-
+      Pattern Recognition Lab, Friedrich-Alexander-Universität
+      Erlangen-Nürnberg
+  - family-names: Bergler
+    given-names: Christian
+    affiliation: Ostbayerische Technische Hochschule Amberg-Weiden
+  - family-names: Maier
+    given-names: Andreas
+    affiliation: >-
+      Pattern Recognition Lab, Friedrich-Alexander-Universität
+      Erlangen-Nürnberg
+  - family-names: Bayer
+    given-names: Siming
+    affiliation: >-
+      Pattern Recognition Lab, Friedrich-Alexander-Universität
+      Erlangen-Nürnberg
+preferred-citation:
+  type: conference-paper
+  title: Offline Reinforcement Learning for Distribution-Grid Protection
+  year: 2026
+  notes: >-
+    Manuscript submitted for publication (PESS 2026). Julian Oelhaf and
+    Alexander Luce contributed equally.
+  authors:
+    - family-names: Oelhaf
+      given-names: Julian
+    - family-names: Luce
+      given-names: Alexander
+    - family-names: Bergler
+      given-names: Christian
+    - family-names: Maier
+      given-names: Andreas
+    - family-names: Bayer
+      given-names: Siming

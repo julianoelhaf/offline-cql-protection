@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: Test (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install pinned requirements
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      # The README's own invocation. Must run from the repository root:
+      # `python -m` puts the working directory on sys.path, which is how the
+      # tests reach run_ablation, gate5 and rl_protection. Do not add a
+      # working-directory here.
+      #
+      # Tests needing the external experiment artifacts skip themselves, so
+      # this passes without the EvEMTBench dataset or any GPU.
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+  checks:
+    name: Static checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Slurm job scripts parse
+        run: |
+          set -e
+          for f in gate4/*.sbatch; do
+            bash -n "$f"
+          done
+
+      # These scripts take every path through a required environment variable
+      # rather than hardcoding one. This keeps a site-internal path or account
+      # name from creeping back in via a copy-paste from the cluster checkout.
+      - name: No site-internal paths or account names
+        run: |
+          set -e
+          if grep -rInE "iwi5|/home/(hpc|woody|vault)|rrze\.uni-erlangen|git5\.cs\.fau\.de|juoe_" \
+              --exclude-dir=.git --exclude-dir=.github .; then
+            echo "::error::found a site-internal path, hostname or account name"
+            exit 1
+          fi

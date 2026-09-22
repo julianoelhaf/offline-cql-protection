@@ -1,0 +1,214 @@
+{
+  "action_sequences": {
+    "baseline_nuisance_trips": 8,
+    "candidate_nuisance_trips": 6,
+    "different_prediction_rate": 0.025998197276425734,
+    "different_predictions": 26680,
+    "episodes_with_any_difference": 91,
+    "nonfault_episodes": 11,
+    "nonfault_episodes_with_any_difference": 8,
+    "total_predictions": 1026225
+  },
+  "dense": {
+    "FN": {
+      "baseline_gamma095": 53669,
+      "candidate_gamma099": 47461,
+      "delta": -6208
+    },
+    "FP": {
+      "baseline_gamma095": 4193,
+      "candidate_gamma099": 213,
+      "delta": -3980
+    },
+    "TN": {
+      "baseline_gamma095": 200272,
+      "candidate_gamma099": 204252,
+      "delta": 3980
+    },
+    "TP": {
+      "baseline_gamma095": 768091,
+      "candidate_gamma099": 774299,
+      "delta": 6208
+    },
+    "f1": {
+      "baseline_gamma095": 0.9637011274469212,
+      "candidate_gamma099": 0.9701341625988552,
+      "delta": 0.006433035151934052
+    },
+    "fpr": {
+      "baseline_gamma095": 0.020507177267502997,
+      "candidate_gamma099": 0.0010417430856136747,
+      "delta": -0.019465434181889323
+    },
+    "precision": {
+      "baseline_gamma095": 0.9945706501753241,
+      "candidate_gamma099": 0.9997249881215526,
+      "delta": 0.005154337946228549
+    },
+    "recall": {
+      "baseline_gamma095": 0.9346901771806854,
+      "candidate_gamma099": 0.9422446943146418,
+      "delta": 0.007554517133956384
+    }
+  },
+  "first_trip": {
+    "baseline_gamma095": {
+      "correct_first_trip_latency": {
+        "median_bootstrap_ci95_ms": [
+          0.10416666666666667,
+          0.10416666666666667
+        ],
+        "median_ms": 0.10416666666666667,
+        "n": 210,
+        "p95_ms": 1.6666666666666667,
+        "q25_ms": 0.10416666666666667,
+        "q75_ms": 0.4166666666666667
+      },
+      "episodes": 225,
+      "fault_episodes": 214,
+      "fault_outcomes": {
+        "correct_first_trip": {
+          "ci95": [
+            0.9529340547238404,
+            0.9927077946982162
+          ],
+          "count": 210,
+          "rate": 0.9813084112149533,
+          "total": 214
+        },
+        "no_trip": {
+          "ci95": [
+            0.0047788697706099385,
+            0.04039829197799301
+          ],
+          "count": 3,
+          "rate": 0.014018691588785047,
+          "total": 214
+        },
+        "premature_trip": {
+          "ci95": [
+            0.0,
+            0.017634195260581874
+          ],
+          "count": 0,
+          "rate": 0.0,
+          "total": 214
+        },
+        "wrong_relay_first_trip": {
+          "ci95": [
+            0.0008253579045416418,
+            0.025989826185380586
+          ],
+          "count": 1,
+          "rate": 0.004672897196261682,
+          "total": 214
+        }
+      },
+      "nonfault_episodes": 11,
+      "nonfault_outcomes": {
+        "false_first_trip": {
+          "ci95": [
+            0.43435469882387084,
+            0.902539407099751
+          ],
+          "count": 8,
+          "rate": 0.7272727272727273,
+          "total": 11
+        },
+        "no_trip": {
+          "ci95": [
+            0.09746059290024889,
+            0.5656453011761291
+          ],
+          "count": 3,
+          "rate": 0.2727272727272727,
+          "total": 11
+        }
+      },
+      "tag": "combined_W48"
+    },
+    "candidate_gamma099": {
+      "correct_first_trip_latency": {
+        "median_bootstrap_ci95_ms": [
+          0.10416666666666667,
+          0.10416666666666667
+        ],
+        "median_ms": 0.10416666666666667,
+        "n": 211,
+        "p95_ms": 1.9270833333333335,
+        "q25_ms": 0.10416666666666667,
+        "q75_ms": 0.5208333333333334
+      },
+      "episodes": 225,
+      "fault_episodes": 214,
+      "fault_outcomes": {
+        "correct_first_trip": {
+          "ci95": [
+            0.9596017080220072,
+            0.9952211302293901
+          ],
+          "count": 211,
+          "rate": 0.985981308411215,
+          "total": 214
+        },
+        "no_trip": {
+          "ci95": [
+            0.002566706667490393,
+            0.03342946625177219
+          ],
+          "count": 2,
+          "rate": 0.009345794392523364,
+          "total": 214
+        },
+        "premature_trip": {
+          "ci95": [
+            0.0,
+            0.017634195260581874
+          ],
+          "count": 0,
+          "rate": 0.0,
+          "total": 214
+        },
+        "wrong_relay_first_trip": {
+          "ci95": [
+            0.0008253579045416418,
+            0.025989826185380586
+          ],
+          "count": 1,
+          "rate": 0.004672897196261682,
+          "total": 214
+        }
+      },
+      "nonfault_episodes": 11,
+      "nonfault_outcomes": {
+        "false_first_trip": {
+          "ci95": [
+            0.280091537409322,
+            0.7872872837754024
+          ],
+          "count": 6,
+          "rate": 0.5454545454545454,
+          "total": 11
+        },
+        "no_trip": {
+          "ci95": [
+            0.21271271622459764,
+            0.719908462590678
+          ],
+          "count": 5,
+          "rate": 0.45454545454545453,
+          "total": 11
+        }
+      },
+      "tag": "combined_W48_gamma099"
+    }
+  },
+  "sha256": {
+    "baseline_first_trip_summary": "b73446b9cf5b42cf05adb889e5968c4a22fb161983b67218e88cfbde5d619337",
+    "baseline_metrics": "55a3be4b4fd0c1699d935459797cb41145c26f578c4a5637f09d8d6e56ade6d6",
+    "baseline_predictions": "26b3600e5765b26516316dc7eb4b34795c39660b5ddc10dd67c63ad3f7b946a7",
+    "candidate_first_trip_summary": "307b7f764c8f989a7d75a8e00252a9d620110dbddfa3f1658930ddc493dd0638",
+    "candidate_metrics": "511f19d123abb4dcd4dd642c87451f9019b90b9c6ac48d2d13a75246c4cf943b",
+    "candidate_predictions": "2ea184301c6e95c13b9098f7195794cb9c0a78f216cd5dbf4ecd3b1496d26a9a"
+  }
+}

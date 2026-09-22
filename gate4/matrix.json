@@ -1,0 +1,116 @@
+{
+  "matrix_source": "run_ablation.py BLOCK_A_CQL, BLOCK_B_TEMPLATES, BLOCK_C_TEMPLATES",
+  "base_tag_for_blocks_b_c": "combined_W48",
+  "shared": {
+    "epochs": 30,
+    "learning_rate": 0.001,
+    "gamma": 0.95,
+    "tau": 0.005,
+    "batch_size": 1024,
+    "workers": 0,
+    "split_seed": 0,
+    "training_seed": 0,
+    "deterministic": false,
+    "input_manifests": {
+      "raw_train": "3940fddc79cab43a9ce3c0eacfeac37aebbe2be15ed37aa3218cd48a96fe2b1f",
+      "raw_validation": "11fe6a9644e829106a0feb08c95f51d717b1d0ee2e33e90d5e3688874f64b3a2",
+      "corrected_phasor_sha256_ledger": "ac7b48c7a3da9368751587cf91cbb792ef07820473fd2d5c5f291f3ce1b67ef1",
+      "settings_csv": "190e14486297c0131516a0095feedff97556c9de9a70142707a581c85ea34bf2",
+      "train_labels": "093312fca1b755c7eee0c4a921ea5776ecda37544e7c3ca465b82c904fb2c45b",
+      "transitions": "f44850f10c9848a71d07ebe8b27ffee5353a5d5a37c4d1971d89415064395494",
+      "validation_labels": "30bcae0283b5f5bfac5afab2713719941baf675f17312d1f6fc4208ab7a169b5"
+    }
+  },
+  "runs": [
+    {
+      "tag": "phasor_W48",
+      "block": "A",
+      "mode": "phasor",
+      "window_W": 48,
+      "alpha": 0.5,
+      "false_positive_penalty": -100.0,
+      "correct_reward": 5.0    },
+    {
+      "tag": "combined_W48",
+      "block": "A",
+      "mode": "combined",
+      "window_W": 48,
+      "alpha": 0.5,
+      "false_positive_penalty": -100.0,
+      "correct_reward": 5.0,
+      "note": "The unseeded Gate 3 run is retained as evidence but rerun for the seeded Gate 4 matrix."
+    },
+    {
+      "tag": "phasor_W96",
+      "block": "A",
+      "mode": "phasor",
+      "window_W": 96,
+      "alpha": 0.5,
+      "false_positive_penalty": -100.0,
+      "correct_reward": 5.0    },
+    {
+      "tag": "combined_W96",
+      "block": "A",
+      "mode": "combined",
+      "window_W": 96,
+      "alpha": 0.5,
+      "false_positive_penalty": -100.0,
+      "correct_reward": 5.0    },
+    {
+      "tag": "combined_W48_fp10",
+      "block": "B",
+      "mode": "combined",
+      "window_W": 48,
+      "alpha": 0.5,
+      "false_positive_penalty": -10.0,
+      "correct_reward": 5.0    },
+    {
+      "tag": "combined_W48_fp200",
+      "block": "B",
+      "mode": "combined",
+      "window_W": 48,
+      "alpha": 0.5,
+      "false_positive_penalty": -200.0,
+      "correct_reward": 5.0    },
+    {
+      "tag": "combined_W48_fp100",
+      "block": "B",
+      "mode": "combined",
+      "window_W": 48,
+      "alpha": 0.5,
+      "false_positive_penalty": -100.0,
+      "correct_reward": 50.0,
+      "note": "The fp100 suffix is retained exactly although this runner variant changes correct_reward to 50."
+    },
+    {
+      "tag": "combined_W48_alpha0.1",
+      "block": "C",
+      "mode": "combined",
+      "window_W": 48,
+      "alpha": 0.1,
+      "false_positive_penalty": -100.0,
+      "correct_reward": 5.0    },
+    {
+      "tag": "combined_W48_alpha0.9",
+      "block": "C",
+      "mode": "combined",
+      "window_W": 48,
+      "alpha": 0.9,
+      "false_positive_penalty": -100.0,
+      "correct_reward": 5.0    }
+  ],
+  "excluded": [
+    {
+      "scope": "raw and raw_v2 Block-A runs",
+      "reason": "They do not consume the corrected impedance features."
+    },
+    {
+      "scope": "phasor_W192",
+      "reason": "It is absent from the current code-led matrix; the historical checkpoint uses an incompatible architecture."
+    },
+    {
+      "scope": "BC runs",
+      "reason": "They are commented out in the actual runner."
+    }
+  ]
+}

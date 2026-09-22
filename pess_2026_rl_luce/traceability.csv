@@ -1,0 +1,42 @@
+paper_location,value_or_group,source_file,source_field_or_rows,derivation_or_note
+Title and author block,title authors affiliations contribution correspondence,User-approved Gate 6 metadata,verbatim block,Supplied directly by user
+Abstract and Table III phasor_W48 dense metrics,"P=0.9922 R=0.9359 F1=0.9632 FPR=0.0297",evidence/corrected_validation_summary.csv,tag=phasor_W48,Rounded to four decimals from Gate 4 metrics.json
+Abstract and Table III combined_W48 dense metrics,"P=0.9946 R=0.9347 F1=0.9637 FPR=0.0205",evidence/corrected_validation_summary.csv,tag=combined_W48,Rounded to four decimals from Gate 4 metrics.json
+Table III phasor_W96 dense metrics,"P=0.9992 R=0.8972 F1=0.9454 FPR=0.0031",evidence/corrected_validation_summary.csv,tag=phasor_W96,Rounded to four decimals from Gate 4 metrics.json
+Table III combined_W96 dense metrics,"P=0.9992 R=0.9397 F1=0.9686 FPR=0.0032",evidence/corrected_validation_summary.csv,tag=combined_W96,Rounded to four decimals from Gate 4 metrics.json
+Table III wrong-trip -10 dense metrics,"P=0.9946 R=0.9347 F1=0.9637 FPR=0.0205",evidence/corrected_validation_summary.csv,tag=combined_W48_fp10,Rounded to four decimals from Gate 4 metrics.json
+Table III wrong-trip -200 dense metrics,"P=0.9946 R=0.9347 F1=0.9637 FPR=0.0205",evidence/corrected_validation_summary.csv,tag=combined_W48_fp200,Rounded to four decimals from Gate 4 metrics.json
+Table III correct-reward 50 dense metrics,"P=0.9996 R=0.9252 F1=0.9610 FPR=0.0013",evidence/corrected_validation_summary.csv,tag=combined_W48_fp100,Rounded to four decimals from Gate 4 metrics.json
+Table III alpha 0.1 dense metrics,"P=0.9977 R=0.8236 F1=0.9023 FPR=0.0076",evidence/corrected_validation_summary.csv,tag=combined_W48_alpha0.1,Rounded to four decimals from Gate 4 metrics.json
+Abstract and Table III alpha 0.9 dense metrics,"P=0.9993 R=0.9496 F1=0.9738 FPR=0.0028",evidence/corrected_validation_summary.csv,tag=combined_W48_alpha0.9,Rounded to four decimals from Gate 4 metrics.json
+Results window comparison,"F1 differences 0.0005 and 0.0231",evidence/corrected_validation_summary.csv,Block A rows,Subtraction of unrounded F1 values
+Results reward identity,"fp10 default and fp200 identical",evidence/corrected_validation_summary.csv,"combined_W48 combined_W48_fp10 combined_W48_fp200",Metrics and saved prediction hashes are identical
+System and Table I episode counts,"4507 total; 4282 development; 225 validation",gate4/run_one.py and artifacts/labels/settings.csv,"verified file-count contract and 4507 settings rows",Code-led counts
+System and Table I validation composition,"214 fault; 11 non-fault",evidence/first_trip_summary.csv,"fault_episodes and nonfault_episodes",Same for all nine runs
+System and Table I timing,"4800 samples; 9600 Hz; 0.10417 ms; onset sample 960 at 0.1 s",evidence/first_trip_definition.json,"episode_final_index sample_rate_hz sample_period_ms fault_onset_index",4800 equals final index plus one
+System and Table I network dimensions,"14 buses; 15 lines; 29 cubicles; 174 raw channels; 16 actions",../rl_protection/constants.py,"LINE_TO_ACTION WAIT N_ACTIONS N_LINE_COLS",Code-led constants and original CIGRE description
+Feature section,"192-sample DFT; 0.005 causal current threshold; 348 phasor channels",../rl_protection/preprocess.py,"CYCLE_LEN impedance_phasor compute_phasors",Equations restate implementation positively
+Feature section,"W48 quarter cycle; W96 half cycle",../rl_protection/constants.py and ../gate4/matrix.json,"CYCLE_LEN=192 and window_W",Window divided by 192
+Data split,"90/10 episode split; split seed 0",../rl_protection/dataset.py and ../gate4/matrix.json,"train_frac=0.9 split_seed=0",All episode transitions remain together
+Table II architecture,"kernel 7; dilations 1 3 9 27; 128 pooled features",../rl_protection/models.py,"_block DilatedBranch make_combined",Code-led architecture
+Table II optimization,"30 epochs; batch 1024; lr 0.001; gamma 0.95; tau 0.005",../gate4/matrix.json,shared configuration,Identical across nine runs
+Reproducibility,"training seed 0; deterministic=false",../gate4/matrix.json,"training_seed deterministic",Seed reproducibility without deterministic CUDA kernels
+First-trip definition,"first non-wait action; later actions ignored; no-trip censored",evidence/first_trip_definition.json,"outcomes post_first_trip_actions_ignored no_trip_right_censored",Definition fixed before evaluation
+First-trip uncertainty,"Wilson 95% intervals; 10000 bootstrap samples seed 0",evidence/first_trip_definition.json,"bootstrap and definition metadata",Rates use Wilson intervals and latency median uses bootstrap
+Table IV phasor_W48 outcomes,"87.38 12.15 0.47 72.73 1.219",evidence/first_trip_summary.csv,tag=phasor_W48,"correct wrong no-trip NFT p95; percent conversion"
+Table IV combined_W48 outcomes,"98.13 0.47 1.40 72.73 1.667",evidence/first_trip_summary.csv,tag=combined_W48,"correct wrong no-trip NFT p95; percent conversion"
+Table IV phasor_W96 outcomes,"94.86 5.14 0.00 45.45 1.354",evidence/first_trip_summary.csv,tag=phasor_W96,"correct wrong no-trip NFT p95; percent conversion"
+Table IV combined_W96 outcomes,"89.72 9.81 0.47 72.73 1.042",evidence/first_trip_summary.csv,tag=combined_W96,"correct wrong no-trip NFT p95; percent conversion"
+Table IV wrong-trip -10 outcomes,"98.13 0.47 1.40 72.73 1.667",evidence/first_trip_summary.csv,tag=combined_W48_fp10,"correct wrong no-trip NFT p95; percent conversion"
+Table IV wrong-trip -200 outcomes,"98.13 0.47 1.40 72.73 1.667",evidence/first_trip_summary.csv,tag=combined_W48_fp200,"correct wrong no-trip NFT p95; percent conversion"
+Table IV correct-reward 50 outcomes,"97.66 0.93 1.40 54.55 2.125",evidence/first_trip_summary.csv,tag=combined_W48_fp100,"correct wrong no-trip NFT p95; percent conversion"
+Table IV alpha 0.1 outcomes,"93.46 0.47 6.07 36.36 6.896",evidence/first_trip_summary.csv,tag=combined_W48_alpha0.1,"correct wrong no-trip NFT p95; percent conversion"
+Table IV alpha 0.9 outcomes,"92.06 7.01 0.93 54.55 2.750",evidence/first_trip_summary.csv,tag=combined_W48_alpha0.9,"correct wrong no-trip NFT p95; percent conversion"
+Results Wilson interval combined_W48,"43.44--90.25%",evidence/first_trip_summary.csv,combined_W48 nonfault_false_first_trip_ci95_low/high,Multiplied by 100
+Results Wilson interval alpha0.9,"28.01--78.73%",evidence/first_trip_summary.csv,combined_W48_alpha0.9 nonfault_false_first_trip_ci95_low/high,Multiplied by 100
+Table V all family rates,short-circuit HIF and incipient correct-first percentages,evidence/event_type_first_trip.csv,grouped event_type rows,Generated by summarize_event_types.py from saved episode outcomes
+Figure 1 all series,dense F1 correct-first and non-fault no-trip rates,evidence/corrected_validation_summary.csv and evidence/first_trip_summary.csv,all nine tags,Percent conversion and two-decimal display
+Original-versus-current numerical comparison,all nine original corrected and delta metric rows,evidence/original_vs_corrected.csv,all rows,Original values from artifacts/ablation_study/validation_summary.csv
+Training provenance,commit 3779240025750c8faa1886405aa49d0cebce1e71,../gate4/matrix.json and Gate 4 provenance.json,training commit,All nine seeded runs
+First-trip provenance,commit fef095006e6c1cf311bac9fba1ed4f4c5ff0cd60,evidence/first_trip_definition.json,evaluation_commit,Slurm job 3912955
+Acknowledgment,DFG funding sentence,User-approved Gate 6 instruction,verbatim,Included exactly as required
